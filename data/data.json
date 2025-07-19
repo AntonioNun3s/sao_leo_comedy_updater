@@ -1,0 +1,38 @@
+[
+    {
+        "name": "RODRIGO CÁCERES",
+        "date": "19/07/2025",
+        "days_for_the_show": 0,
+        "time": "21:00"
+    },
+    {
+        "name": "SANNY MACHADO",
+        "date": "20/07/2025",
+        "days_for_the_show": 1,
+        "time": "20:00"
+    },
+    {
+        "name": "JOE CARDOSO",
+        "date": "24/07/2025",
+        "days_for_the_show": 5,
+        "time": "20:00"
+    },
+    {
+        "name": "AUGUSTO BOESCHE",
+        "date": "25/07/2025",
+        "days_for_the_show": 6,
+        "time": "21:00"
+    },
+    {
+        "name": "CAMEJO",
+        "date": "26/07/2025",
+        "days_for_the_show": 7,
+        "time": "21:00"
+    },
+    {
+        "name": "CUMPADRE JUKA GAUCHO",
+        "date": "26/07/2025",
+        "days_for_the_show": 7,
+        "time": "21:00"
+    }
+]
