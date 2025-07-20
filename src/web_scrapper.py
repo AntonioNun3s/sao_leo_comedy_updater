@@ -8,14 +8,17 @@ import json
 
 class web_scrapper:
 
+    # scraps the information of the website
+
     def start_browser(self):
 
+        # runs it in headless mode to save CPU and RAM
         options = Options()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
 
         try:
-            service = Service(executable_path="sao_leo_comedy_updater/src/geckodriver.exe")
+            service = Service(executable_path="src/geckodriver.exe")
             driver = webdriver.Firefox(options=options, service=service)
             driver.get("https://www.saoleocomedy.com.br/")
         except Exception as e:
@@ -23,6 +26,8 @@ class web_scrapper:
         time.sleep(3)
 
         return driver
+
+    # manages the scrapped info of the site and turns it into an array of the artists
 
     def get_information(self, driver):
         html = driver.page_source
@@ -37,7 +42,9 @@ class web_scrapper:
 
         return participants
 
-    def sort_participants(self, participants):
+    # filters the participants array into an array of dictionaries
+
+    def filter_participants(self, participants):
 
         information = []
         today = datetime.today()
@@ -65,18 +72,18 @@ class web_scrapper:
             info_participant["date"] = date_n_time_raw[1]
             info_participant["time"] = date_n_time_raw[2]
             info_participant["days_for_the_show"] = days_for_the_show.days
-
-            print(info_participant)
             information.append(info_participant)
 
-            print("------------------------------------------------------------------------------------------")
-            print()
+        print(today)
+        print("dados pegos com sucesso")
 
         return information
 
+    # saves the new array of dictionaries on the JSON where the bot later will get and manage it
+
     def save_JSON(self, information):
         
-        with open("sao_leo_comedy_updater/data/data.json", "w", encoding="utf-8") as file:
+        with open("data/data.json", "w", encoding="utf-8") as file:
 
             json.dump(information, file, indent=4, ensure_ascii=False)
 
